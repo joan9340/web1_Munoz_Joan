@@ -1,17 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: red;
-}
-
 :root {
     --bg: #f5f7fb;
     --surface: #ffffff;
-    --text: 111827;
+    --text: #111827;
     --muted: #6b7280;
     --primary: #1d4771;
     /* azul oscuro elegante */
@@ -22,9 +12,11 @@ body {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -46,6 +38,26 @@ video {
     height: auto;
     display: block;
 
+}
+
+.sobre-mi-imgs {
+    display: flex;
+    /* pone las imágenes en fila */
+    gap: 20px;
+    /* espacio entre imágenes */
+    justify-content: center;
+    /* centra horizontalmente */
+    align-items: center;
+    /* alinea verticalmente */
+    flex-wrap: wrap;
+    /* si la pantalla es pequeña, las acomoda una debajo de otra */
+}
+.sobre-mi-imgs img{
+    width: 100%;
+    max-width: 500px; /* límite para que no se deformen */
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
 .container {
@@ -71,13 +83,13 @@ video {
     top: .5rem;
 }
 
-.side-header {
+.site-header {
     background: linear-gradient(90deg, var(--primary), #1f2937);
     color: #fff;
 
 }
 
-.side-header .container {
+.site-header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,9 +103,7 @@ video {
     letter-spacing: .5px;
 }
 
-.logo span {
-    color: #a5b4fc;
-}
+
 
 .site-nav ul {
     list-style: none;
@@ -138,81 +148,86 @@ video {
 
 /* Hace que el primer bloque (main) se vea como columna principal */
 
-    .principal {
-        min-width: 0;
+.principal {
+    min-width: 0;
 
 }
+
 /* Aside en pantallas grandes */
-.sidebar .sticky{
-    position: sticky; top: 16px;
+.sidebar .sticky {
+    position: static;
 }
 
 /* Tipografia de títulos y párrafos */
-.card h2{
+.card h2 {
     margin-top: 0;
     font-size: clamp(1.25rem, 2.2vw, 1.6rem);
 }
 
-.card p{
+.card p {
     color: var(--text);
 }
 
 /* Listas de datos rápidos */
-.facts{
+.facts {
     padding-left: 1.1rem;
 
 }
-.facts li{
-    margin: .25rem 0; 
+
+.facts li {
+    margin: .25rem 0;
 
 }
 
 /* Media (imagenes/video con descripción */
 
 
-.media{
+.media {
     margin-top: 1rem;
 }
 
-.media figcaption{
+.media figcaption {
     color: var(--muted);
 
 }
 
 /* Galeria responsive */
 
-.gallery{
- display:grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 12px;
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 
 }
-.gallery figure{
+
+.gallery figure {
     margin: 0;
 
 }
-.gallery img{
+
+.gallery img {
     border-radius: 12px;
 
 }
-.gallery figcaption{
+
+.gallery figcaption {
     text-align: center;
-    color: var(--muted); 
+    color: var(--muted);
     font-size: .9rem;
     margin-top: .35rem;
 }
 
 /* Iframe responsive(16:9)*/
-.embed{
+.embed {
     position: relative;
     padding-top: 56.25%;
-   margin-top: 1rem;
-   border-radius: 12px;
-   overflow: hidden; 
-   box-shadow: var(--shadow);
+    margin-top: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
-.embed iframe{
+.embed iframe {
     position: absolute;
     inset: 0;
     /* top: 0;
@@ -223,44 +238,50 @@ video {
 }
 
 /* Footer-pie de página */
-.site-footer{
-    background: #111827; color:#e5e7eb
+.site-footer {
+    background: #111827;
+    color: #e5e7eb
 }
+
 .site-footer .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0; gap: 1rem;
+    padding: 1rem 0;
+    gap: 1rem;
 
 }
 
-.site-footer a{
+.site-footer a {
 
 
-color:#93c5fd;
-text-decoration: none;
+    color: #93c5fd;
+    text-decoration: none;
 }
 
-.site-footer a:hover{
+.site-footer a:hover {
     text-decoration: underline;
 }
 
-/* Resposividad (mobile first)  Computadores*/ 
+/* Resposividad (mobile first)  Computadores*/
 @media (max-width:920px) {
-    .layout{
+    .layout {
         grid-template-columns: 1fr;
-       
+
     }
-     /* Aside se ubico debajo del main */
-    .principal{
+
+    /* Aside se ubico debajo del main */
+    .principal {
         order: 1;
     }
-    .sidebar{
+
+    .sidebar {
         order: 2;
 
- 
+
     }
-    .gallery{
+
+    .gallery {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -270,12 +291,15 @@ text-decoration: none;
     .layout {
         grid-template-columns: 1fr;
     }
+
     .principal {
         order: 1;
     }
+
     .sidebar {
         order: 2;
     }
+
     .gallery {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -283,10 +307,12 @@ text-decoration: none;
 
 /* Resposividad (mobile first)  Moviles */
 @media (max-width: 560px) {
-   .site-nav ul{
-    gap: .5rem;
-    .gallery{
+    .site-nav ul {
+        gap: .5rem;
+    }
+
+    .gallery {
         grid-template-columns: 1fr;
     }
-   }
+
 }
