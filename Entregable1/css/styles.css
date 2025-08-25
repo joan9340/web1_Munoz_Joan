@@ -2,7 +2,7 @@
     --bg: #f5f7fb;
     --surface: #ffffff;
     --text: #111827;
-    --muted: #6b7280;
+    --muted: #010306;
     --primary: #1d4771;
     /* azul oscuro elegante */
     --accent: #2563eb;
@@ -16,8 +16,84 @@
     padding: 0;
     box-sizing: border-box;
 }
+.sobre-mi-imgs figure{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+/* Efecto de hover para las imágenes */
+.sobre-mi-imgs figure:hover {
+     transform: scale(1.05); /*Zoom sutil */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
+}
+.sobre-mi-imgs figure:hover img{
+    filter: brightness(1.1) saturate(1.2);
+}
+
+.sobre-mi-imgs figcaption{
+
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 8px;
+    transition: color 0.3s ease;
+
+}
+
+.sobre-mi-imgs figure:hover figcaption{
+    color:var(--accent); /*Cambia el color al hover */
+
+}
+
+.sobre-mi-imgs figure{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards;
+}
+
+/* Retrasa cada imagen un poquito para efecto escalonado */
+.sobre-mi-imgs figure:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.sobre-mi-imgs figure:nth-child(2){
+    animation-delay: 0.4s;
+}
+/* Galería de pasatiempos (imágenes y videos) */
+.pasatiempos-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se adapta al ancho */
+    gap: 16px;
+    justify-items: center; /* centra los elementos */
+    margin-top: 1rem;
+}
+
+.pasatiempos-gallery img,
+.pasatiempos-gallery video {
+    width: 700px;   /* tamaño uniforme */
+    height: 300px;  /* cuadrado perfecto */
+    object-fit: cover; /* recorta para que no se deformen */
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.pasatiempos-gallery figcaption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 6px;
+}
 
 
+@keyframes fadeUp {
+to{
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+    
 html {
     scroll-behavior: smooth;
 }
@@ -39,6 +115,13 @@ video {
     display: block;
 
 }
+.media video{
+    width: 300px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
 
 .sobre-mi-imgs {
     display: flex;
@@ -52,12 +135,33 @@ video {
     flex-wrap: wrap;
     /* si la pantalla es pequeña, las acomoda una debajo de otra */
 }
+
+.pasatiempos-video {
+    display: flex;
+    /* pone las imágenes en fila */
+    gap: 20px;
+    /* espacio entre imágenes */
+    justify-content: center;
+    /* centra horizontalmente */
+    align-items: center;
+    /* alinea verticalmente */
+    flex-wrap: wrap;
+    /* si la pantalla es pequeña, las acomoda una debajo de otra */
+
+}
+
+
+
+
+
 .sobre-mi-imgs img{
     width: 100%;
-    max-width: 500px; /* límite para que no se deformen */
-    height: 300px;
+    max-width: 400px; /* límite para que no se deformen */
+    height: 250px;
+    object-fit: cover; /* recorta la imagen para que no se deforme */
     border-radius: 12px;
-    box-shadow: var(--shadow);
+    filter: brightness(0.95); /* un poquito más oscura */
+    transition: filter 0.4s ease;
 }
 
 .container {
@@ -198,6 +302,13 @@ video {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 
+}
+.gallery img{
+     width: 400px;     /*  todas tendrán 400px de ancho */
+    height: 400px;    /*  todas tendrán 400px de alto */
+    object-fit: cover; /*  recorta la imagen manteniendo proporción */
+    border-radius: 10px; /*  opcional: esquinas redondeadas */
+    margin: 2px;       /*  espacio entre imágenes */
 }
 
 .gallery figure {
