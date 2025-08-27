@@ -155,6 +155,7 @@ video {
 
 
 .sobre-mi-imgs img{
+   
     width: 100%;
     max-width: 400px; /* límite para que no se deformen */
     height: 250px;
@@ -188,8 +189,8 @@ video {
 }
 
 .site-header {
-    background: linear-gradient(90deg, var(--primary), #1f2937);
-    color: #fff;
+    background: linear-gradient(90deg, var(--primary), #28632c);
+    color: #ffffff;
 
 }
 
@@ -233,9 +234,9 @@ video {
 }
 
 .layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    /* main a la izquierda, aside a la derecha */
+
+   display: block;
+    /* main ARRIBA DE EL ASIDE */
     gap: 24px;
     align-items: start;
     padding: 24px 0;
